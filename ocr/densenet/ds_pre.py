@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 
 from ocr.densenet.data_reader import load_dict_sp, single_img_process, process_imgs
-from ocr.densenet.model_with_process import get_model_with_process
+from model_with_process import get_model_with_process
 
 
 def decode_single_line(pred_text, nclass, id_to_char):
@@ -41,7 +41,6 @@ def predict(model, image, id_to_char, num_classes):
         img = image
 
     # X = single_img_process(img)
-    img = np.array(img)
     X = np.array([img])
 
     y_pred = model.predict(X)
